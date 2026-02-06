@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import Paquete_Ejercicios_en_Curso.*;
+import Paquete_Ejercicios_en_Curso.EmpleadoFijo;
 
 public class Main {
 
@@ -12,6 +14,10 @@ public class Main {
             System.out.println("2. Polimorfismo con Empleados");
             System.out.println("3. Ocultamiento de Atributos");
             System.out.println("4. Arrays y Referencias");
+            System.out.println("5. Figuras Geometricas");
+            System.out.println("6. Gestion de productos");
+            System.out.println("7. Inventario con arrays");
+            System.out.println("8. Copia de arrays");
             System.out.println("0. Salir");
             opcion = sc.nextInt();
 
@@ -50,6 +56,16 @@ public class Main {
                         System.out.print(i + " ");
                     }
                     System.out.println();
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                default:
                     break;
             }
 
