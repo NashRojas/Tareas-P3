@@ -12,4 +12,8 @@ public class Circulo extends Figura {
     public double area(){
         return Math.PI * radio * radio;
     }
+
+    public String getNombre(){
+        return "Circulo";
+    }
 }

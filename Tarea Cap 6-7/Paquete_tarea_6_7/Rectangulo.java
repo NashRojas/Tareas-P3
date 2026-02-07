@@ -14,4 +14,8 @@ public class Rectangulo extends Figura {
     public double area(){
         return base * altura;
     }
+
+    public String getNombre(){
+        return "Rectangulo";
+    }
 }

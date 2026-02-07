@@ -12,4 +12,8 @@ public class Cuadrado extends Figura {
     public double area(){
         return lado * lado;
     }
+
+    public String getNombre(){
+        return "Cuadrado";
+    }
 }
