@@ -139,7 +139,7 @@ public static void pausa() {
     try {
         System.out.println("\nPresione cualquier tecla para continuar...");
         System.in.read();
-        System.in.read(); // limpia el buffer
+        System.in.read(); // limpiar el buffer
     } catch (Exception e) {
     }
 }
