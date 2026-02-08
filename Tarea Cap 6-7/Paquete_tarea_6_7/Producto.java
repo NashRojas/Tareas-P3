@@ -8,8 +8,18 @@ public class Producto {
 
     public Producto(String nombre, double precio, int stock) {
         this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
+
+        if (precio >= 0) {
+            this.precio = precio;
+        } else {
+            this.precio = precio;
+        }
+
+        if (stock >= 0) {
+            this.stock = stock;
+        } else {
+            this.stock = stock;
+        }
     }
     
     public String getNombre(){
@@ -22,18 +32,6 @@ public class Producto {
 
     public int getStock(){
         return stock;
-    }
-
-    public void setPrecio(double precio){
-        if (precio >= 0) {
-            this.precio = precio;
-        }
-    }
-
-    public void setStock(int stock){
-        if (stock >= 0) {
-            this.stock = stock;
-        }
     }
 
     public void vender(int cantidad) {
