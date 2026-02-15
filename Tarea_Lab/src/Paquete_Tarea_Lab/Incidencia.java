@@ -10,7 +10,7 @@ public class Incidencia {
     private String nivelPrioridad;
 
 
-    public Incidencia(int id, String descripcion,String fechaTexto, String nivelPrioridad) throws DescripcionInvalidaException, PrioridadInvalidaException, FechaInvalidaException{
+    public Incidencia(int id, String descripcion, String nivelPrioridad, String fechaTexto) throws DescripcionInvalidaException, PrioridadInvalidaException, FechaInvalidaException{
         this.id = id;
 
         if (descripcion == null){
