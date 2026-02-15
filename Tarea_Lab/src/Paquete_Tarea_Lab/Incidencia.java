@@ -42,7 +42,7 @@ public class Incidencia {
         try {
             fecha = sdf.parse(fechaTexto);
         } catch (ParseException e){
-        throw new FechaInvalidaException("Formato de fecha invalido, utiliza dd/MM/yyyy");
+        throw new FechaInvalidaException("Formato de fecha invalido, No puede ser a futuro y utiliza dd/MM/yyyy");
         }
         
         Date hoy = new Date();
