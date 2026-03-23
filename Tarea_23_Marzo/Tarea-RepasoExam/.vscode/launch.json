@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "Run FX",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path /Users/tyecactus/javafx-sdk-21.0.10/lib --add-modules javafx.controls"
+        }
+    ]
+}
