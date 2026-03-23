@@ -91,8 +91,86 @@ private void mostrarAlerta(String msg, Alert.AlertType tipo) {
     alert.showAndWait();
 }
 
+@FXML
+private void guardarArchivo() {
+
+    if (listaProductos.isEmpty()) {
+        mostrarAlerta("Lista vacía", Alert.AlertType.WARNING);
+        return;
+    }
+
+    new Thread(() -> {
+        try {
+            util.ArchivoUtil.guardarArchivo(listaProductos);
+
+            javafx.application.Platform.runLater(() -> {
+                lblEstado.setText("Guardado correctamente");
+                progressBar.setProgress(1);
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }).start();
+}
+@FXML
+private void cargarArchivo() {
+
+    Thread hilo = new Thread(() -> {
+        try {
+            var lista = util.ArchivoUtil.leerArchivo();
+
+            int total = lista.size();
+
+            for (int i = 0; i < total; i++) {
+                Producto p = lista.get(i);
+
+                Thread.sleep(200);
+
+                int index = i;
+
+                javafx.application.Platform.runLater(() -> {
+                    progressBar.setProgress((double) index / total);
+                    lblEstado.setText("Cargando...");
+                });
+            }
+
+            javafx.application.Platform.runLater(() -> {
+                listaProductos.clear();
+                listaProductos.addAll(lista);
+                lblEstado.setText("Carga completa");
+                progressBar.setProgress(1);
+            });
+
+        } catch (Exception e) {
+            javafx.application.Platform.runLater(() -> {
+                lblEstado.setText("No se encontró archivo");
+            });
+        }
+    });
+
+    hilo.setDaemon(true);
+    hilo.start();
+}
+
+@FXML
+private void salir() {
+
+    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+    confirm.setTitle("Salir");
+    confirm.setHeaderText(null);
+    confirm.setContentText("¿Seguro que deseas salir?");
+
+    confirm.showAndWait().ifPresent(respuesta -> {
+        if (respuesta == ButtonType.OK) {
+            System.exit(0);
+        }
+    });
+}
+
     @FXML
     public void initialize() {
+        cargarArchivo();
         listaProductos = FXCollections.observableArrayList();
 
         colNombre.setCellValueFactory(data -> data.getValue().nombreProperty());

@@ -47,13 +47,13 @@
    <bottom>
       <VBox id="vboxx" prefHeight="165.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblEstado" prefHeight="17.0" prefWidth="30.0" text="Listo" />
+            <Label fx:id="lblEstado" prefHeight="17.0" prefWidth="253.0" text="Listo" />
             <HBox alignment="CENTER" prefHeight="43.0" prefWidth="600.0" spacing="10.0">
                <children>
                   <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#abrirFormulario" prefHeight="25.0" prefWidth="122.0" text="Agregar" />
                   <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarProducto" text="Eliminar" />
-                  <Button fx:id="btnGuardar" mnemonicParsing="false" text="Guardar" />
-                  <Button fx:id="btnCargar" alignment="CENTER" mnemonicParsing="false" text="Cargar" />
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardarArchivo" text="Guardar" />
+                  <Button fx:id="btnCargar" alignment="CENTER" mnemonicParsing="false" onAction="#cargarArchivo" text="Cargar" />
                </children>
             </HBox>
             <ProgressBar fx:id="progressBar" prefHeight="21.0" prefWidth="600.0" progress="0.0" />
