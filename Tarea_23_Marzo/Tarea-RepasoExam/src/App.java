@@ -1,14 +1,26 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class App extends Application {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-    }
+public class App extends Application {   
 
     @Override
-    public void start(Stage arg0) throws Exception {
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("view/main.fxml")
+        );
+
+        Scene scene = new Scene(loader.load());
+
+        stage.setTitle("Inventario");
+        stage.setScene(scene);
+        stage.show();
         
-        throw new UnsupportedOperationException("Unimplemented method 'start'");
     }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
 }
